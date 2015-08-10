@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Any.Email.Mvvm
+namespace Ap.Email.Mvvm
 {
     /// <summary>
-    /// An <see cref="T:System.Windows.Input.ICommand"/> whose delegates can be attached for <see cref="M:Any.Email.Mvvm.DelegateCommandBase.Execute(System.Object)"/> and <see cref="M:Any.Email.Mvvm.DelegateCommandBase.CanExecute(System.Object)"/>.
+    /// An <see cref="T:System.Windows.Input.ICommand"/> whose delegates can be attached for <see cref="M:Ap.Email.Mvvm.DelegateCommandBase.Execute(System.Object)"/> and <see cref="M:Ap.Email.Mvvm.DelegateCommandBase.CanExecute(System.Object)"/>.
     /// 
     /// </summary>
     public abstract class DelegateCommandBase : ICommand
@@ -55,7 +55,7 @@ namespace Any.Email.Mvvm
         }
 
         /// <summary>
-        /// Creates a new instance of a <see cref="T:Any.Email.Mvvm.DelegateCommandBase"/>, specifying both the execute action and the can execute function.
+        /// Creates a new instance of a <see cref="T:Ap.Email.Mvvm.DelegateCommandBase"/>, specifying both the execute action and the can execute function.
         /// 
         /// </summary>
         /// <param name="executeMethod">The <see cref="T:System.Action"/> to execute when <see cref="M:System.Windows.Input.ICommand.Execute(System.Object)"/> is invoked.</param><param name="canExecuteMethod">The <see cref="T:System.Func`2"/> to invoked when <see cref="M:System.Windows.Input.ICommand.CanExecute(System.Object)"/> is invoked.</param>
@@ -72,7 +72,7 @@ namespace Any.Email.Mvvm
         }
 
         /// <summary>
-        /// Creates a new instance of a <see cref="T:Any.Email.Mvvm.DelegateCommandBase"/>, specifying both the Execute action as an awaitable Task and the CanExecute function.
+        /// Creates a new instance of a <see cref="T:Ap.Email.Mvvm.DelegateCommandBase"/>, specifying both the Execute action as an awaitable Task and the CanExecute function.
         /// 
         /// </summary>
         /// <param name="executeMethod">The <see cref="T:System.Func`2"/> to execute when <see cref="M:System.Windows.Input.ICommand.Execute(System.Object)"/> is invoked.</param><param name="canExecuteMethod">The <see cref="T:System.Func`2"/> to invoked when <see cref="M:System.Windows.Input.ICommand.CanExecute(System.Object)"/> is invoked.</param>
@@ -95,11 +95,11 @@ namespace Any.Email.Mvvm
         }
 
         /// <summary>
-        /// Raises <see cref="E:Any.Email.Mvvm.DelegateCommandBase.CanExecuteChanged"/> on the UI thread so every command invoker
+        /// Raises <see cref="E:Ap.Email.Mvvm.DelegateCommandBase.CanExecuteChanged"/> on the UI thread so every command invoker
         ///             can requery to check if the command can execute.
         /// 
         /// <remarks>
-        /// Note that this will trigger the execution of <see cref="M:Any.Email.Mvvm.DelegateCommandBase.CanExecute(System.Object)"/> once for each invoker.
+        /// Note that this will trigger the execution of <see cref="M:Ap.Email.Mvvm.DelegateCommandBase.CanExecute(System.Object)"/> once for each invoker.
         /// </remarks>
         /// 
         /// </summary>

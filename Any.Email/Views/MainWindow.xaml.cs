@@ -1,7 +1,7 @@
 ﻿using System.Windows;
-using Any.Email.ViewModels;
+using Ap.Email.ViewModels;
 
-namespace Any.Email.Views
+namespace Ap.Email.Views
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml

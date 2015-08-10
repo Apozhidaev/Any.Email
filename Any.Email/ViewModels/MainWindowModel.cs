@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Input;
-using Any.Email.Models;
-using Any.Email.Mvvm;
+using Ap.Email.Models;
+using Ap.Email.Mvvm;
+using Ap.EmailSender;
 
-namespace Any.Email.ViewModels
+namespace Ap.Email.ViewModels
 {
     public class MainWindowModel : BindableBase
     {
@@ -17,6 +18,7 @@ namespace Any.Email.ViewModels
             _sendCommand = new DelegateCommand<object>(Send);
             _smtpSettings = new SmtpSettings
             {
+                From = "",
                 Host = "",
                 EnableSsl = false,
                 Port = 25,
@@ -25,7 +27,6 @@ namespace Any.Email.ViewModels
             };
             _email = new EmailModel
             {
-                From = "",
                 To = "",
                 Subject = "Test subject",
                 Body = "Test body"
@@ -94,12 +95,12 @@ namespace Any.Email.ViewModels
         }
         public string From
         {
-            get { return _email.From; }
+            get { return _smtpSettings.From; }
             set
             {
-                if (_email.From != value)
+                if (_smtpSettings.From != value)
                 {
-                    _email.From = value;
+                    _smtpSettings.From = value;
                     OnPropertyChanged();
                 }
             }
@@ -150,7 +151,7 @@ namespace Any.Email.ViewModels
         {
             try
             {
-                new EmailService(_smtpSettings).Send(_email);
+                new SmtpService(_smtpSettings).Send(new[] { _email.To }, _email.Subject, _email.Body, _email.Attachmets);
                 MessageBox.Show("ok");
             }
             catch (Exception e)

@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
-namespace Any.Email.Mvvm
+namespace Ap.Email.Mvvm
 {
     public abstract class BindableBase : INotifyPropertyChanged
     {

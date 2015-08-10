@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 
-namespace Any.Email.Mvvm
+namespace Ap.Email.Mvvm
 {
     /// <summary>
     /// Handles management and dispatching of EventHandlers in a weak way.

@@ -2,10 +2,10 @@
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace Any.Email.Mvvm
+namespace Ap.Email.Mvvm
 {
     /// <summary>
-    /// An <see cref="T:System.Windows.Input.ICommand"/> whose delegates can be attached for <see cref="M:Any.Email.Mvvm.DelegateCommand`1.Execute(`0)"/> and <see cref="M:Any.Email.Mvvm.DelegateCommand`1.CanExecute(`0)"/>.
+    /// An <see cref="T:System.Windows.Input.ICommand"/> whose delegates can be attached for <see cref="M:Ap.Email.Mvvm.DelegateCommand`1.Execute(`0)"/> and <see cref="M:Ap.Email.Mvvm.DelegateCommand`1.CanExecute(`0)"/>.
     /// 
     /// </summary>
     /// <typeparam name="T">Parameter type.</typeparam>
@@ -39,12 +39,12 @@ namespace Any.Email.Mvvm
     public class DelegateCommand<T> : DelegateCommandBase
     {
         /// <summary>
-        /// Initializes a new instance of <see cref="T:Any.Email.Mvvm.DelegateCommand`1"/>.
+        /// Initializes a new instance of <see cref="T:Ap.Email.Mvvm.DelegateCommand`1"/>.
         /// 
         /// </summary>
         /// <param name="executeMethod">Delegate to execute when Execute is called on the command. This can be null to just hook up a CanExecute delegate.</param>
         /// <remarks>
-        /// <see cref="M:Any.Email.Mvvm.DelegateCommand`1.CanExecute(`0)"/> will always return true.
+        /// <see cref="M:Ap.Email.Mvvm.DelegateCommand`1.CanExecute(`0)"/> will always return true.
         /// </remarks>
         public DelegateCommand(Action<T> executeMethod)
             : this(executeMethod, (Func<T, bool>)(o => true))
@@ -52,7 +52,7 @@ namespace Any.Email.Mvvm
         }
 
         /// <summary>
-        /// Initializes a new instance of <see cref="T:Any.Email.Mvvm.DelegateCommand`1"/>.
+        /// Initializes a new instance of <see cref="T:Ap.Email.Mvvm.DelegateCommand`1"/>.
         /// 
         /// </summary>
         /// <param name="executeMethod">Delegate to execute when Execute is called on the command. This can be null to just hook up a CanExecute delegate.</param><param name="canExecuteMethod">Delegate to execute when CanExecute is called on the command. This can be null.</param><exception cref="T:System.ArgumentNullException">When both <paramref name="executeMethod"/> and <paramref name="canExecuteMethod"/> ar <see langword="null"/>.</exception>
@@ -79,12 +79,12 @@ namespace Any.Email.Mvvm
         }
 
         /// <summary>
-        /// Factory method to create a new instance of <see cref="T:Any.Email.Mvvm.DelegateCommand`1"/> from an awaitable handler method.
+        /// Factory method to create a new instance of <see cref="T:Ap.Email.Mvvm.DelegateCommand`1"/> from an awaitable handler method.
         /// 
         /// </summary>
         /// <param name="executeMethod">Delegate to execute when Execute is called on the command.</param>
         /// <returns>
-        /// Constructed instance of <see cref="T:Any.Email.Mvvm.DelegateCommand`1"/>
+        /// Constructed instance of <see cref="T:Ap.Email.Mvvm.DelegateCommand`1"/>
         /// </returns>
         public static DelegateCommand<T> FromAsyncHandler(Func<T, Task> executeMethod)
         {
@@ -92,12 +92,12 @@ namespace Any.Email.Mvvm
         }
 
         /// <summary>
-        /// Factory method to create a new instance of <see cref="T:Any.Email.Mvvm.DelegateCommand`1"/> from an awaitable handler method.
+        /// Factory method to create a new instance of <see cref="T:Ap.Email.Mvvm.DelegateCommand`1"/> from an awaitable handler method.
         /// 
         /// </summary>
         /// <param name="executeMethod">Delegate to execute when Execute is called on the command. This can be null to just hook up a CanExecute delegate.</param><param name="canExecuteMethod">Delegate to execute when CanExecute is called on the command. This can be null.</param>
         /// <returns>
-        /// Constructed instance of <see cref="T:Any.Email.Mvvm.DelegateCommand`1"/>
+        /// Constructed instance of <see cref="T:Ap.Email.Mvvm.DelegateCommand`1"/>
         /// </returns>
         public static DelegateCommand<T> FromAsyncHandler(Func<T, Task> executeMethod, Func<T, bool> canExecuteMethod)
         {
