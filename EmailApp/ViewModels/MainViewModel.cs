@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Input;
-using Ap.Email.Models;
-using Ap.Email.Mvvm;
-using Ap.EmailSender;
+using EmailApp.Models;
+using EmailSender;
+using Mvvm;
+using Mvvm.Commands;
 
-namespace Ap.Email.ViewModels
+namespace EmailApp.ViewModels
 {
-    public class MainWindowModel : BindableBase
+    public class MainViewModel : BindableBase
     {
-        private readonly SmtpSettings _smtpSettings;
         private readonly EmailModel _email;
-        private readonly ICommand _sendCommand;
+        private readonly SmtpSettings _smtpSettings;
 
-        public MainWindowModel()
+        public MainViewModel()
         {
-            _sendCommand = new DelegateCommand<object>(Send);
+            SendCommand = new DelegateCommand(Send);
             _smtpSettings = new SmtpSettings
             {
                 From = "",
@@ -45,6 +45,7 @@ namespace Ap.Email.ViewModels
                 }
             }
         }
+
         public int Port
         {
             get { return _smtpSettings.Port; }
@@ -57,6 +58,7 @@ namespace Ap.Email.ViewModels
                 }
             }
         }
+
         public string User
         {
             get { return _smtpSettings.User; }
@@ -69,6 +71,7 @@ namespace Ap.Email.ViewModels
                 }
             }
         }
+
         public string Password
         {
             get { return _smtpSettings.Password; }
@@ -81,6 +84,7 @@ namespace Ap.Email.ViewModels
                 }
             }
         }
+
         public bool EnableSsl
         {
             get { return _smtpSettings.EnableSsl; }
@@ -93,6 +97,7 @@ namespace Ap.Email.ViewModels
                 }
             }
         }
+
         public string From
         {
             get { return _smtpSettings.From; }
@@ -105,6 +110,7 @@ namespace Ap.Email.ViewModels
                 }
             }
         }
+
         public string To
         {
             get { return _email.To; }
@@ -117,6 +123,7 @@ namespace Ap.Email.ViewModels
                 }
             }
         }
+
         public string Subject
         {
             get { return _email.Subject; }
@@ -129,6 +136,7 @@ namespace Ap.Email.ViewModels
                 }
             }
         }
+
         public string Body
         {
             get { return _email.Body; }
@@ -142,23 +150,19 @@ namespace Ap.Email.ViewModels
             }
         }
 
-        public ICommand SendCommand
-        {
-            get { return _sendCommand; }
-        }
+        public ICommand SendCommand { get; }
 
-        private void Send(object args)
+        private void Send()
         {
             try
             {
-                new SmtpService(_smtpSettings).Send(new[] { _email.To }, _email.Subject, _email.Body, _email.Attachmets);
+                new SmtpService(_smtpSettings).Send(new[] {_email.To}, _email.Subject, _email.Body, _email.Attachmets);
                 MessageBox.Show("ok");
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.GetBaseException().Message);
             }
-            
         }
     }
 }
