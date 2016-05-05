@@ -156,7 +156,7 @@ namespace EmailApp.ViewModels
         {
             try
             {
-                new SmtpService(_smtpSettings).Send(new[] {_email.To}, _email.Subject, _email.Body, _email.Attachmets);
+                new SmtpService(_smtpSettings).Send(new[] {_email.To}, _email.Subject, _email.Body);
                 MessageBox.Show("ok");
             }
             catch (Exception e)
