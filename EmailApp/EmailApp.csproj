@@ -37,7 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EmailSender, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\EmailSender.1.0.0\lib\EmailSender.dll</HintPath>
+      <HintPath>..\packages\EmailSender.1.0.1\lib\EmailSender.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Mvvm, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
