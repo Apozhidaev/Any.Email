@@ -18,16 +18,16 @@ namespace EmailApp.ViewModels
             SendCommand = new DelegateCommand(Send);
             _smtpSettings = new SmtpSettings
             {
-                From = "transwers@outlook.com",
-                Host = "smtp-mail.outlook.com",
-                EnableSsl = true,
-                Port = 587,
-                User = "transwers@outlook.com",
-                Password = "[18984sau]"
+                From = "",
+                Host = "",
+                EnableSsl = false,
+                Port = 25,
+                User = "",
+                Password = ""
             };
             _email = new EmailModel
             {
-                To = "alexander.pozhidaev@gmail.com",
+                To = "",
                 Subject = "Test subject",
                 Body = "Test body"
             };
